@@ -1,0 +1,14 @@
+﻿JOB TITLE: Senior AI & Backend Platform Engineer
+COMPANY: CloudScale AI Technologies
+LOCATION: Remote / Hybrid
+
+ROLE OVERVIEW:
+We are seeking a Senior Backend Engineer with strong AI platform foundations to design scalable microservices and deploy PyTorch-based neural models into production.
+
+CORE REQUIREMENTS & RESPONSIBILITIES:
+• Design and maintain high-throughput asynchronous REST APIs using Python and FastAPI.
+• Containerize microservices with Docker and orchestrate resilient multi-cloud deployments on Kubernetes.
+• Build, evaluate, and optimize deep learning model inference pipelines using PyTorch and HuggingFace.
+• Deploy scalable distributed cloud infrastructure on AWS utilizing ECS, Lambda, RDS, and S3.
+• Write comprehensive automated unit test suites using PyTest and maintain strict CI/CD quality pipelines.
+• Collaborate with cross-functional AI research and product engineering teams.

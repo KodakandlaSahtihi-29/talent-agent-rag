@@ -1,0 +1,88 @@
+﻿/* TalentRAG - Clean Modern Light Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+html, body, [class*=\"css\"] {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  color: #0f172a;
+}
+
+/* Hide Default Streamlit Developer Elements */
+#MainMenu { visibility: hidden; display: none !important; }
+header { visibility: hidden; display: none !important; }
+footer { visibility: hidden; display: none !important; }
+.stDeployButton { display: none !important; }
+[data-testid=\"stToolbar\"] { display: none !important; }
+[data-testid=\"stDecoration\"] { display: none !important; }
+[data-testid=\"stStatusWidget\"] { display: none !important; }
+
+/* Custom Card Containers */
+.tr-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Agent Pill Badges */
+.agent-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Skill Badges */
+.skill-badge-matched {
+  background-color: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+.skill-badge-missing {
+  background-color: #fff1f2;
+  color: #be123c;
+  border: 1px solid #fecdd3;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+/* Question & Rubric Box */
+.question-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #2563eb;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* Rubric Feedback Card */
+.feedback-box {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-top: 0.75rem;
+}

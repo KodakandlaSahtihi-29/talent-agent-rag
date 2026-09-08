@@ -1,0 +1,18 @@
+﻿KODAKANDLA SAHITHI
+Email: sahithikodakandla594@gmail.com | LinkedIn: linkedin.com/in/sahithi-kodakandla-7ba166293/
+Location: Visakhapatnam, India
+
+PROFESSIONAL SUMMARY
+Backend & Machine Learning Engineer with strong proficiency in Python, FastAPI, relational databases (PostgreSQL, SQLite), Docker, and NLP information retrieval. Proven track record building explainable AI systems and asynchronous REST microservices.
+
+TECHNICAL COMPETENCIES
+• Programming: Python, SQL, JavaScript
+• Web & APIs: FastAPI, Flask, Starlette, Pydantic, REST API
+• Data & Databases: PostgreSQL, SQLite, Pandas, NumPy, Scikit-Learn
+• Tools & DevOps: Docker, Git, Linux, PyTest, CI/CD
+
+PROJECT EXPERIENCE
+TalentMatch AI — NLP Candidate-Job Compatibility Platform
+• Architected explainable matching pipeline using TF-IDF, N-grams, and Word2Vec continuous embeddings.
+• Implemented asynchronous FastAPI backend processing resume and job description text payloads.
+• Containerized the application using Docker and built interactive analytical dashboards.
