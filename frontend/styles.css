@@ -1,19 +1,35 @@
-﻿/* TalentRAG - Clean Modern Light Stylesheet */
+/* TalentRAG - Clean Modern Light Stylesheet */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-html, body, [class*=\"css\"] {
+html, body, [class*="css"] {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
   color: #0f172a;
 }
 
-/* Hide Default Streamlit Developer Elements */
-#MainMenu { visibility: hidden; display: none !important; }
-header { visibility: hidden; display: none !important; }
-footer { visibility: hidden; display: none !important; }
-.stDeployButton { display: none !important; }
-[data-testid=\"stToolbar\"] { display: none !important; }
-[data-testid=\"stDecoration\"] { display: none !important; }
-[data-testid=\"stStatusWidget\"] { display: none !important; }
+/* Hide Default Streamlit Developer Elements while keeping sidebar toggle */
+header[data-testid="stHeader"] {
+  background: transparent !important;
+}
+
+[data-testid="stSidebarCollapseButton"], 
+button[kind="header"],
+[data-testid="stSidebarCollapsedControl"] {
+  visibility: visible !important;
+  display: inline-flex !important;
+  color: #0f172a !important;
+}
+
+#MainMenu { visibility: hidden !important; display: none !important; }
+footer { visibility: hidden !important; display: none !important; }
+.stDeployButton, [data-testid="stDeployButton"] { display: none !important; }
+[data-testid="stDecoration"] { display: none !important; }
+[data-testid="stStatusWidget"] { display: none !important; }
+
+/* Sidebar Light Styling */
+[data-testid="stSidebar"] {
+  background-color: #ffffff !important;
+  border-right: 1px solid #e2e8f0 !important;
+}
 
 /* Custom Card Containers */
 .tr-card {
