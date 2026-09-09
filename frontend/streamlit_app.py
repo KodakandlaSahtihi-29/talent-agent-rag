@@ -1,4 +1,4 @@
-﻿"""TalentRAG — Autonomous Multi-Agent RAG Platform.
+"""TalentRAG — Autonomous Multi-Agent RAG Platform.
 
 Engineered by Sahithi Kodakandla.
 Coordinates 3 autonomous agents (Matcher, Interviewer, Evaluator)
@@ -107,18 +107,52 @@ with step1:
         if st.button("⚡ Load Realistic Sample Scenario", help="Loads Candidate Profile vs Senior AI & Backend Job Description"):
             st.session_state["resume_input"] = sample_resume_content
             st.session_state["jd_input"] = sample_jd_content
-            st.success("Loaded sample candidate and job description!")
-
-    res_default = st.session_state.get("resume_input", sample_resume_content)
-    jd_default = st.session_state.get("jd_input", sample_jd_content)
+            st.session_state["match_results"] = None
+            st.session_state["generated_questions"] = None
+            st.rerun()
 
     c1, c2 = st.columns(2)
     with c1:
         st.markdown("#### 👤 Candidate Resume")
-        resume_text = st.text_area("Resume Content:", value=res_default, height=240)
+        uploaded_resume = st.file_uploader("Upload Resume (PDF or TXT)", type=["pdf", "txt"], key="resume_uploader")
+        if uploaded_resume is not None:
+            try:
+                if uploaded_resume.name.lower().endswith(".pdf"):
+                    import fitz
+                    pdf_bytes = uploaded_resume.read()
+                    doc = fitz.open(stream=pdf_bytes, filetype="pdf")
+                    extracted = "\n".join([page.get_text() for page in doc]).strip()
+                else:
+                    extracted = uploaded_resume.read().decode("utf-8", errors="ignore").strip()
+                if extracted:
+                    st.session_state["resume_input"] = extracted
+                    st.toast(f"✅ Loaded resume from {uploaded_resume.name}!")
+            except Exception as e:
+                st.error(f"Error reading file: {e}")
+
+        res_default = st.session_state.get("resume_input", sample_resume_content)
+        resume_text = st.text_area("Resume Text / Preview:", value=res_default, height=200, key="resume_textarea")
+        
     with c2:
         st.markdown("#### 💼 Job Description (JD)")
-        jd_text = st.text_area("Job Description:", value=jd_default, height=240)
+        uploaded_jd = st.file_uploader("Upload Job Description (PDF or TXT)", type=["pdf", "txt"], key="jd_uploader")
+        if uploaded_jd is not None:
+            try:
+                if uploaded_jd.name.lower().endswith(".pdf"):
+                    import fitz
+                    pdf_bytes = uploaded_jd.read()
+                    doc = fitz.open(stream=pdf_bytes, filetype="pdf")
+                    extracted = "\n".join([page.get_text() for page in doc]).strip()
+                else:
+                    extracted = uploaded_jd.read().decode("utf-8", errors="ignore").strip()
+                if extracted:
+                    st.session_state["jd_input"] = extracted
+                    st.toast(f"✅ Loaded JD from {uploaded_jd.name}!")
+            except Exception as e:
+                st.error(f"Error reading file: {e}")
+
+        jd_default = st.session_state.get("jd_input", sample_jd_content)
+        jd_text = st.text_area("Job Description Text / Preview:", value=jd_default, height=200, key="jd_textarea")
 
     if st.button("🚀 Run Agent 1: RAG Ingestion & Match", type="primary", use_container_width=True):
         with st.spinner("Agent 1 is chunking JD, computing PyTorch tensor embeddings, and retrieving skill alignment..."):
